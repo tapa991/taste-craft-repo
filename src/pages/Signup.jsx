@@ -3,33 +3,37 @@ import styled from "styled-components";
 
 const Login = () => {
     return (
-        <LoginPageContainer>
+        <SignupPageContainer>
             <BannerContainer>
                 <Title>TasteCraft</Title>
                 <P>A place to share and find recipes</P>
             </BannerContainer>
-            <LoginContainer>
-                <LoginDetails>
-                    <h1>Sign in to TasteCraft</h1>
+            <SignupContainer>
+                <SignupDetails>
+                    <h1>Create account</h1>
 
-                    <InputLabel>Username/E-mail</InputLabel>
-                    <Input placeholder="Enter your username/e-mail..." />
+                    <InputLabel>Username</InputLabel>
+                    <Input placeholder="Enter your username..." />
+
+                    <InputLabel>E-mail</InputLabel>
+                    <Input placeholder="Enter your e-mail..." />
 
                     <InputLabel>Password</InputLabel>
                     <Input style={{margin: 0}} type="password" placeholder="Enter your password..." />
-                    <ForgotPassword>Forgot password?</ForgotPassword>
 
-                    <LoginButton>Login</LoginButton>
-                    <Signup href="/signup">Sign up here</Signup>
-                </LoginDetails>
-            </LoginContainer>
-        </LoginPageContainer>
+                    <InputLabel>Confirm Password</InputLabel>
+                    <Input style={{margin: 0}} type="password" placeholder="Re-enter your password..." />
+
+                    <SignupButton>Sign up</SignupButton>
+                </SignupDetails>
+            </SignupContainer>
+        </SignupPageContainer>
     );
 };
 
 export default Login;
 
-const LoginPageContainer = styled.div`
+const SignupPageContainer = styled.div`
     display: flex;
     flex-direction: row;
     width: 100vw;
@@ -68,7 +72,7 @@ const P = styled.p`
     border-radius: 10px;
 `;
 
-const LoginContainer = styled.div`
+const SignupContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,7 +81,7 @@ const LoginContainer = styled.div`
     background-color: white;
 `;
 
-const LoginDetails = styled.div`
+const SignupDetails = styled.div`
     text-align: left;
     font-size: 20px;
     display: flex;
@@ -109,15 +113,7 @@ const Input = styled.input`
     }
 `;
 
-const ForgotPassword = styled.a`
-    color: rgb(24, 87, 146);
-    font-size: 10px;
-    margin-top: 10px;
-    text-align: left;
-    align-self: flex-start;
-`
-
-const LoginButton = styled.button`
+const SignupButton = styled.button`
     background-color: rgb(199, 52, 8);
     color: white;
     font-size: 18px;
@@ -133,10 +129,3 @@ const LoginButton = styled.button`
         background-color: rgb(131, 27, 9);
     }
 `;
-
-const Signup = styled.a`
-    color: rgb(24, 87, 146);
-    font-size: 15px;
-    margin-top: 15px;
-    text-align: left;
-`
