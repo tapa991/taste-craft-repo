@@ -8,12 +8,14 @@ import viteLogo from '/vite.svg'
 import RecipePage from './pages/Recipe'
 import './App.css'
 import HomePage from './pages/HomePage'
+import RecipeSearchPage from './pages/Search'
 
 // define the routes in the application and store return value in router const
 // pass array of javascript objects '{}', each object defines one route
 const router = createBrowserRouter([
  { path: '/', element: <HomePage/> },
- { path: '/recipe', element: <RecipePage/>}
+ { path: '/recipe', element: <RecipePage/>},
+ { path: '/search', element: <RecipeSearchPage/>}
 ]);
 
 function App() {
