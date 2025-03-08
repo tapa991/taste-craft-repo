@@ -19,7 +19,7 @@ const Header = () => {
       </NavContainer>
 
       {/* Sign In Button */}
-      <SignInButton>Sign In</SignInButton>
+      <SignInButton href="/login">Sign In</SignInButton>
     </Nav>
   );
 };
@@ -68,7 +68,7 @@ const NavLink = styled.a`
   }
 `;
 
-const SignInButton = styled.button`
+const SignInButton = styled.a`
   background: #38bdf8;
   color: white;
   border: none;
