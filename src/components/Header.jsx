@@ -11,9 +11,8 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <NavLinks>
-          <NavLink href="/recipe">Home</NavLink>
+          <NavLink href="/">Home</NavLink>
           <NavLink href="#">About</NavLink>
-          <NavLink href="#">Services</NavLink>
           <NavLink href="#">Contact</NavLink>
         </NavLinks>
       </NavContainer>
