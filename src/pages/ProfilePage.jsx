@@ -9,7 +9,7 @@ const ProfilePage = () => {
         <ProfileContainer>
         <ProfileCard>
             <ProfileCardColumn>
-                <Avatar src="/public/blank-profile-picture.png" alt="Profile Picture" />
+                <Avatar src="/blank-profile-picture.png" alt="Profile Picture" />
                 <Button>Edit Profile</Button>
             </ProfileCardColumn>
 
@@ -24,12 +24,12 @@ const ProfilePage = () => {
 
         <h2>Shared Meals</h2>
         <RecipeContainer>
-            <Image src="cakeHolder.jpg" alt="Apple Pie" />
-            <Image src="cakeHolder.jpg" alt="Apple Pie" />
-            <Image src="cakeHolder.jpg" alt="Apple Pie" />
-            <Image src="cakeHolder.jpg" alt="Apple Pie" />
-            <Image src="cakeHolder.jpg" alt="Apple Pie" />
-            <Image src="cakeHolder.jpg" alt="Apple Pie" />
+            <Image src="/cakeHolder.jpg" alt="Apple Pie" />
+            <Image src="/cakeHolder.jpg" alt="Apple Pie" />
+            <Image src="/cakeHolder.jpg" alt="Apple Pie" />
+            <Image src="/cakeHolder.jpg" alt="Apple Pie" />
+            <Image src="/cakeHolder.jpg" alt="Apple Pie" />
+            <Image src="/cakeHolder.jpg" alt="Apple Pie" />
         </RecipeContainer>
     </ProfileContainer>
     </>

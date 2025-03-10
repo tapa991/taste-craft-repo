@@ -11,10 +11,10 @@ const SearchPage = () => {
     });
 
     const recipes = [
-        { name: "Chocolate Cake", image: "cakeHolder.jpg" },
-        { name: "Vegan Brownies", image: "cakeHolder.jpg" },
-        { name: "Gluten-Free Cookies", image: "cakeHolder.jpg" },
-        { name: "Dairy-Free Ice Cream", image: "cakeHolder.jpg" },
+        { name: "Chocolate Cake", image: "/cakeHolder.jpg" },
+        { name: "Vegan Brownies", image: "/cakeHolder.jpg" },
+        { name: "Gluten-Free Cookies", image: "/cakeHolder.jpg" },
+        { name: "Dairy-Free Ice Cream", image: "/cakeHolder.jpg" },
     ];
 
     const handleFilterChange = (e) => {

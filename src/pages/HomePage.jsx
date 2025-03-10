@@ -15,10 +15,10 @@ const HomePage = () => {
             <Featured>
                 <h2>Featured</h2>
                 <RecipeContainer>
-                    <Image src="cakeHolder.jpg" alt="Apple Pie" />
-                    <Image src="cakeHolder.jpg" alt="Apple Pie" />
-                    <Image src="cakeHolder.jpg" alt="Apple Pie" />
-                    <Image src="cakeHolder.jpg" alt="Apple Pie" />
+                    <Image src="/cakeHolder.jpg" alt="Apple Pie" />
+                    <Image src="/cakeHolder.jpg" alt="Apple Pie" />
+                    <Image src="/cakeHolder.jpg" alt="Apple Pie" />
+                    <Image src="/cakeHolder.jpg" alt="Apple Pie" />
                 </RecipeContainer>
             </Featured>
 

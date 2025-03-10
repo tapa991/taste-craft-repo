@@ -19,7 +19,7 @@ export default function RecipePage() {
 
         {/* Recipe Image */}
         <div className="w-full h-64 bg-gray-200 flex items-center justify-center rounded-lg mb-8">
-          <Image src="cakeHolder.jpg" alt="Apple Pie" />
+          <Image src="/cakeHolder.jpg" alt="Apple Pie" />
         </div>
 
         {/* Instructions */}
