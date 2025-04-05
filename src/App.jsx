@@ -12,6 +12,7 @@ import LoginPage from './pages/Login'
 import RecipeSearchPage from './pages/Search'
 import SignupPage from './pages/Signup'
 import ProfilePage from './pages/ProfilePage'
+import UploadPage from './pages/UploadPage'
 
 // define the routes in the application and store return value in router const
 // pass array of javascript objects '{}', each object defines one route
@@ -21,7 +22,8 @@ const router = createBrowserRouter([
  { path: '/search', element: <RecipeSearchPage/>},
  { path: '/login', element: <LoginPage/>},
  { path: '/signup', element: <SignupPage/>},
- { path: '/profile', element: <ProfilePage/>}
+ { path: '/profile', element: <ProfilePage/>},
+ { path: '/upload', element: <UploadPage/>}
 ]);
 
 function App() {

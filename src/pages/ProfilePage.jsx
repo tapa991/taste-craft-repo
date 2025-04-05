@@ -1,8 +1,11 @@
 import Header from '../components/Header'
 import styled from "styled-components";
+import { useNavigate } from 'react-router-dom';
+import ProfilePosts from '../components/ProfilePosts';
 
 const ProfilePage = () => {
   const userInfo = JSON.parse(localStorage.getItem("user-info"));
+  const navigate = useNavigate();
 
   return (
     <>
@@ -24,13 +27,9 @@ const ProfilePage = () => {
         
 
         <h2>Shared Meals</h2>
+        <Button onClick={() => navigate("/upload")}>Upload Recipe</Button>
         <RecipeContainer>
-            <Image src="/cakeHolder.jpg" alt="Apple Pie" />
-            <Image src="/cakeHolder.jpg" alt="Apple Pie" />
-            <Image src="/cakeHolder.jpg" alt="Apple Pie" />
-            <Image src="/cakeHolder.jpg" alt="Apple Pie" />
-            <Image src="/cakeHolder.jpg" alt="Apple Pie" />
-            <Image src="/cakeHolder.jpg" alt="Apple Pie" />
+          <ProfilePosts uid={userInfo.uid}/>
         </RecipeContainer>
     </ProfileContainer>
     </>
@@ -86,7 +85,7 @@ const Button = styled.button`
   font-size: 1rem;
   border-radius: 6px;
   cursor: pointer;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
   transition: background 0.3s;
 
   &:hover {
