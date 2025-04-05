@@ -1,7 +1,16 @@
-import React from "react";
+import { useState } from "react";
+import useLogin from "../../hooks/useLogin";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const [inputs, setInputs] = useState({
+        email: "",
+        password: "",
+    });
+    const {login} = useLogin();
+    const navigate = useNavigate();
+
     return (
         <LoginPageContainer>
             <BannerContainer>
@@ -12,14 +21,16 @@ const Login = () => {
                 <LoginDetails>
                     <h1>Sign in to TasteCraft</h1>
 
-                    <InputLabel>Username/E-mail</InputLabel>
-                    <Input placeholder="Enter your username/e-mail..." />
+                    <InputLabel>E-mail</InputLabel>
+                    <Input placeholder="Enter your e-mail..." onChange={(e) => setInputs({ ...inputs, email: e.target.value})}/>
 
                     <InputLabel>Password</InputLabel>
-                    <Input style={{margin: 0}} type="password" placeholder="Enter your password..." />
-                    <ForgotPassword>Forgot password?</ForgotPassword>
+                    <Input style={{margin: 0}} type="password" placeholder="Enter your password..." onChange={(e) => setInputs({ ...inputs, password: e.target.value})}/>
 
-                    <LoginButton>Login</LoginButton>
+                    <LoginButton onClick={async () => {
+                        await login({ email: inputs.email, password: inputs.password });
+                        navigate("/")
+                    }}>Login</LoginButton>
                     <Signup href="/signup">Sign up here</Signup>
                 </LoginDetails>
             </LoginContainer>
@@ -100,6 +111,7 @@ const Input = styled.input`
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 450px;
+    color: black;
   
     margin-bottom: 20px;
     background-color: whitesmoke;

@@ -1,26 +1,69 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import useLogout from "../../hooks/useLogout"
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true)
+  const {handleLogout, isLoggingOut, error} = useLogout();
+  const navigate = useNavigate();
 
-  return (
-    <Nav>
-      <NavContainer>
-        <Logo>TasteCraft</Logo>
+  useEffect(() => {
+    const userInfo = JSON.parse(localStorage.getItem("user-info"));
+    if (userInfo) {
+        setUser(userInfo);
+    }
+    setLoading(false);
+  }, []);
 
-        {/* Desktop Navigation */}
-        <NavLinks>
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="#">About</NavLink>
-          <NavLink href="#">Contact</NavLink>
-        </NavLinks>
-      </NavContainer>
+  console.log(user)
 
-      {/* Sign In Button */}
-      <SignInButton href="/login">Sign In</SignInButton>
-    </Nav>
-  );
+  if (loading) {
+    return (
+      <></>
+    )
+  }
+  else if (!user) {
+    return (
+      <Nav>
+        <NavContainer>
+          <Logo>TasteCraft</Logo>
+  
+          {/* Desktop Navigation */}
+          <NavLinks>
+            <NavLink href="/">Home</NavLink>
+          </NavLinks>
+        </NavContainer>
+  
+        {/* Sign In Button */}
+        <SignInButton href="/login">Sign In</SignInButton>
+      </Nav>
+    );
+  }
+  else {
+    return (
+      <Nav>
+        <NavContainer>
+          <Logo>TasteCraft</Logo>
+  
+          {/* Desktop Navigation */}
+          <NavLinks>
+            <NavLink href="/">Home</NavLink>
+            <NavLink href="/profile">Profile</NavLink>
+          </NavLinks>
+        </NavContainer>
+  
+        {/* Logout Button */}
+        <SignInButton onClick={async () => {
+          await handleLogout();
+          setUser(null);
+          navigate("/");
+        }}>Logout</SignInButton>
+      </Nav>
+    )
+  }
+  
 };
 
 export default Header;

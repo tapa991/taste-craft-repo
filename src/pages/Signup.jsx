@@ -1,7 +1,19 @@
-import React from "react";
+import { useState } from "react";
+import useSignUp from "../../hooks/useSignUp";
+import useLogin from "../../hooks/useLogin";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
+    const [inputs, setInputs] = useState({
+        email: "",
+        username: "",
+        password: "",
+    });
+    const {signUp} = useSignUp();
+    const {login} = useLogin();
+    const navigate = useNavigate();
+
     return (
         <SignupPageContainer>
             <BannerContainer>
@@ -13,25 +25,29 @@ const Login = () => {
                     <h1>Create account</h1>
 
                     <InputLabel>Username</InputLabel>
-                    <Input placeholder="Enter your username..." />
+                    <Input placeholder="Enter your username..." onChange={(e) => setInputs({ ...inputs, username: e.target.value})}/>
 
                     <InputLabel>E-mail</InputLabel>
-                    <Input placeholder="Enter your e-mail..." />
+                    <Input placeholder="Enter your e-mail..." onChange={(e) => setInputs({ ...inputs, email: e.target.value})}/>
 
                     <InputLabel>Password</InputLabel>
-                    <Input style={{margin: 0}} type="password" placeholder="Enter your password..." />
+                    <Input style={{margin: 0}} type="password" placeholder="Enter your password..." onChange={(e) => setInputs({ ...inputs, password: e.target.value})}/>
 
-                    <InputLabel>Confirm Password</InputLabel>
-                    <Input style={{margin: 0}} type="password" placeholder="Re-enter your password..." />
+                    {/* <InputLabel>Confirm Password</InputLabel>
+                    <Input style={{margin: 0}} type="password" placeholder="Re-enter your password..." /> */}
 
-                    <SignupButton>Sign up</SignupButton>
+                    <SignupButton onClick={ async () => {
+                        await signUp(inputs)
+                        await login({ email: inputs.email, password: inputs.password });
+                        navigate("/")
+                    }}>Sign up</SignupButton>
                 </SignupDetails>
             </SignupContainer>
         </SignupPageContainer>
     );
 };
 
-export default Login;
+export default Signup;
 
 const SignupPageContainer = styled.div`
     display: flex;
@@ -104,6 +120,7 @@ const Input = styled.input`
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 450px;
+    color: black;
   
     margin-bottom: 20px;
     background-color: whitesmoke;
