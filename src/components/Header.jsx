@@ -17,8 +17,6 @@ const Header = () => {
     setLoading(false);
   }, []);
 
-  console.log(user)
-
   if (loading) {
     return (
       <></>

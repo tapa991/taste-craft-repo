@@ -1,8 +1,9 @@
-import React from 'react'
 import Header from '../components/Header'
 import styled from "styled-components";
 
 const ProfilePage = () => {
+  const userInfo = JSON.parse(localStorage.getItem("user-info"));
+
   return (
     <>
     <Header/>
@@ -14,10 +15,10 @@ const ProfilePage = () => {
             </ProfileCardColumn>
 
             <ProfileCardColumn>
-                <Name>John Doe</Name>
-                <Bio>Email: john.doe0451@gmail.com</Bio>
-                <Bio>Phone: N/A</Bio>
-                <Bio>Subscription: Free</Bio>
+                <Name>{userInfo.username}</Name>
+                <Bio>Email: {userInfo.email}</Bio>
+                {/* <Bio>Phone: N/A</Bio>
+                <Bio>Subscription: Free</Bio> */}
             </ProfileCardColumn>
         </ProfileCard>
         
