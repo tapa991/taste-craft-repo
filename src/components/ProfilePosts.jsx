@@ -1,8 +1,15 @@
 import useGetUserPosts from "../../hooks/useGetUserPosts"
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePosts = (uid) => {
     const { isLoadingPosts, posts } = useGetUserPosts(uid);
+    const navigate = useNavigate();
+
+    const navigateToPostPage = (id) => {
+      console.log(id);
+      navigate(`/post/${id}`);
+    }  
 
     if (isLoadingPosts) {
       return <h2>Loading...</h2>
@@ -18,7 +25,7 @@ const ProfilePosts = (uid) => {
                     <PostItem key={post.id}>
                         <PostContainer>
                             <h3>{post.title}</h3>
-                            <PostImage src={post.imageUrl}/>
+                            <PostImage src={post.imageUrl} onClick={() => navigateToPostPage(post.id)}/>
                         </PostContainer>
                     </PostItem>
                 ))}
