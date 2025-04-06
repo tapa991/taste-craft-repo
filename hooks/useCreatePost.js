@@ -6,7 +6,7 @@ function useCreatePost() {
     const [isLoading, setIsLoading] = useState(false);
     const uid = JSON.parse(localStorage.getItem("user-info")).uid;
 
-    const handleCreatePost = async (title, description, imageUrl) => {
+    const handleCreatePost = async (title, description, instructions, ingredients, imageUrl) => {
         if (isLoading) return;
 
         setIsLoading(true);
@@ -14,8 +14,8 @@ function useCreatePost() {
         const newPost = {
             title: title,
             description: description,
-            instructions: ["step1","step2","step3","step4"],
-            ingredients: ["ingredient1","ingredient2","ingredient3","ingredient4"],
+            instructions: instructions,
+            ingredients: ingredients,
             imageUrl: imageUrl,
             createdAt: Date.now(),
             createdBy: uid,

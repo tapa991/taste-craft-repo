@@ -4,7 +4,10 @@ import styled from "styled-components";
 const ProfilePosts = (uid) => {
     const { isLoadingPosts, posts } = useGetUserPosts(uid);
 
-    if (posts.length == 0) {
+    if (isLoadingPosts) {
+      return <h2>Loading...</h2>
+    }
+    else if (posts.length == 0) {
         return <h2>You have no posts!</h2>
     }
     else {
@@ -15,7 +18,7 @@ const ProfilePosts = (uid) => {
                     <PostItem key={post.id}>
                         <PostContainer>
                             <h3>{post.title}</h3>
-                            <PostImage src={post.imageUrl} style={{ maxWidth: '150px' }}/>
+                            <PostImage src={post.imageUrl}/>
                         </PostContainer>
                     </PostItem>
                 ))}
@@ -43,9 +46,16 @@ const PostContainer = styled.div`
 `;
 
 const PostImage = styled.img`
-  max-width: 150px;
-  height: auto;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
   border-radius: 8px;
+  border: 4px solid black;
+  transition: border 0.1s ease; /* Optional: Adds a smooth transition effect */
+  
+  &:hover {
+    border: 4px solid white; /* Change border size and color as needed */
+  }
 `;
 
 export default ProfilePosts
