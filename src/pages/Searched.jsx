@@ -1,7 +1,9 @@
+
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import SearchBar from '../components/SearchBar';
+import Header from '../components/Header';
 
 function Searched() {
   const [searchedRecipes, setSearchedRecipes] = useState([]);
@@ -30,9 +32,9 @@ function Searched() {
 
   return (
     <Container>
+      <Header/>
       <SearchBar />
       <Title>Results for "{query}"</Title>
-      
       {loading ? (
         <LoadingState>Loading...</LoadingState>
       ) : searchedRecipes.length === 0 ? (
@@ -40,14 +42,14 @@ function Searched() {
       ) : (
         <Grid>
           {searchedRecipes.map((item) => (
-            <RecipeCard key={item.id}>
-              <Link to={`/recipe/${item.id}`}>
+            <Link to={`/recipe/${item.id}`} key={item.id}>
+              <RecipeCard>
                 <ImageContainer>
                   <img src={item.image} alt={item.title} />
                 </ImageContainer>
                 <RecipeTitle>{item.title}</RecipeTitle>
-              </Link>
-            </RecipeCard>
+              </RecipeCard>
+            </Link>
           ))}
         </Grid>
       )}
@@ -61,7 +63,6 @@ const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 1.5rem;
-  // background-color: #f7f7f7;
   color: #333;
   font-family: 'Poppins', sans-serif;
 `;
@@ -71,7 +72,7 @@ const Title = styled.h2`
   font-weight: 700;
   margin: 1rem 0;
   text-align: center;
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   text-transform: capitalize;
   letter-spacing: 1px;
 `;
@@ -137,7 +138,7 @@ const ImageContainer = styled.div`
 `;
 
 const RecipeTitle = styled.h4`
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   font-size: 1.2rem;
   text-align: center;
   font-weight: 600;
@@ -150,4 +151,3 @@ const RecipeTitle = styled.h4`
     color: #e74c3c; /* Red theme for hover effect */
   }
 `;
-

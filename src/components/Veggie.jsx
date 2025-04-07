@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const StyledVeggie = styled.div`
   display: flex;
@@ -90,6 +91,7 @@ function Veggie() {
       <RecipeContainer>
         {veggie && veggie.length > 0 ? (
           veggie.map((recipe) => (
+            <Link to={"/recipe/" + recipe.id} key={recipe.id}>
             <Card key={recipe.id}>
               <Image
                 src={recipe.image || "cakeHolder.jpg"}
@@ -97,6 +99,7 @@ function Veggie() {
               />
               <RecipeTitle>{recipe.title}</RecipeTitle>
             </Card>
+            </Link>
           ))
         ) : (
           Array(4).fill(0).map((_, i) => (

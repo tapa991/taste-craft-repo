@@ -72,7 +72,7 @@ const Nav = styled.nav`
   justify-content: space-between; /* Push items to the far ends */
   align-items: center;
   padding: 1rem 2rem;
-  background: #1e293b;
+  // background:rgb(52, 52, 53);
   color: white;
   position: relative;
 `;

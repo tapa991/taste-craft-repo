@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const StyledPopular = styled.div`
   display: flex;
@@ -21,6 +22,7 @@ const RecipeContainer = styled.div`
   flex-wrap: wrap;
   gap: 30px;
   padding-bottom: 1rem;
+  
 `;
 
 const Card = styled.div`
@@ -91,6 +93,7 @@ function Popular() {
       <RecipeContainer>
         {popular && popular.length > 0 ? (
           popular.map((recipe) => (
+            <Link to={"/recipe/" + recipe.id} key={recipe.id}>
             <Card key={recipe.id}>
               <Image
                 src={recipe.image || "cakeHolder.jpg"}
@@ -98,6 +101,7 @@ function Popular() {
               />
               <RecipeTitle>{recipe.title}</RecipeTitle>
             </Card>
+            </Link>
           ))
         ) : (
           Array(4).fill(0).map((_, i) => (
@@ -107,7 +111,7 @@ function Popular() {
             </Card>
           ))
         )}
-      </RecipeContainer>
+    </RecipeContainer>
     </StyledPopular>
   );
 }
