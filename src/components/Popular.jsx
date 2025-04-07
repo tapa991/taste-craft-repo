@@ -5,14 +5,14 @@ const StyledPopular = styled.div`
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  background: #fdfdfd;
+  // background:#242424;
 `;
 
 const Title = styled.h2`
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
-  color: #333;
+  color: #253, 253, 253;
 `;
 
 const RecipeContainer = styled.div`
@@ -24,8 +24,8 @@ const RecipeContainer = styled.div`
 `;
 
 const Card = styled.div`
-  width: 220px;
-  height: 280px;
+  width: 250px;
+  height: 250px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -45,7 +45,7 @@ const Card = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: 150px;
+  height: 250px;
   object-fit: cover;
 `;
 

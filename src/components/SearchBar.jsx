@@ -1,63 +1,75 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FaSearch } from 'react-icons/fa';
+import styled from 'styled-components';
 
-const SearchBar = () => {
-  const [query, setQuery] = useState("");
+function SearchBar() {
+  const [input, setInput] = useState('');
+  const navigate = useNavigate();
 
-  const handleSearch = () => {
-    alert(`Searching for: ${query}`);
+  const submitHandler = (e) => {
+    e.preventDefault(); // Prevents page refresh
+    navigate('/searched/' + input);  // Navigate to the search results page
   };
 
   return (
     <SearchContainer>
-      <SearchInput
-        type="text"
-        placeholder="Search recipes"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <SearchButton onClick={handleSearch}>Search</SearchButton>
+      <SearchForm onSubmit={submitHandler}>
+        <SearchIcon>
+          <FaSearch />
+        </SearchIcon>
+        <SearchInput
+          type="text"
+          placeholder="Search for recipes..."
+          onChange={(e) => setInput(e.target.value)}
+          value={input}
+        />
+      </SearchForm>
     </SearchContainer>
   );
-};
+}
 
-export default SearchBar;
-
-// Styled Components
 const SearchContainer = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
-  border-radius: 10px;
-  padding: 5px;
+  padding: 1rem;
+  // background:rgb(0, 0, 0);
+  border-radius: 12px;
+  // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+`;
+
+const SearchForm = styled.form`
+  display: flex;
+  align-items: center;
   width: 100%;
-  max-width: 500px; /* Longer search bar */
+  max-width: 500px;  // Limit the width of the form
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  background: #fff;
+`;
 
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
+const SearchIcon = styled.div`
+  color: #888;
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
 `;
 
 const SearchInput = styled.input`
-  flex: 1;
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
   border: none;
   outline: none;
-  padding: 10px;
-  font-size: 1rem;
-  border-radius: 10px;
-  border: 2px solid #ccc;
-  margin-right:5px;
-`;
-
-const SearchButton = styled.button`
-  background: #1e293b;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 1rem;
-
-  &:hover {
-    background: #38bdf8;
+  border-radius: 25px;
+  background-color: #f9f9f9;
+  color: #333;
+  
+  &::placeholder {
+    color: #aaa;
   }
 `;
+
+export default SearchBar;
