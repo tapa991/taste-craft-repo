@@ -11,15 +11,16 @@ const Login = () => {
             <LoginContainer>
                 <LoginDetails>
                     <h1>Sign in to TasteCraft</h1>
+                    <Form>
+                        <InputLabel>Username/E-mail</InputLabel>
+                        <Input placeholder="Enter your username/e-mail..." />
 
-                    <InputLabel>Username/E-mail</InputLabel>
-                    <Input placeholder="Enter your username/e-mail..." />
+                        <InputLabel>Password</InputLabel>
+                        <Input style={{margin: 0}} type="password" placeholder="Enter your password..." />
+                        <ForgotPassword>Forgot password?</ForgotPassword>
 
-                    <InputLabel>Password</InputLabel>
-                    <Input style={{margin: 0}} type="password" placeholder="Enter your password..." />
-                    <ForgotPassword>Forgot password?</ForgotPassword>
-
-                    <LoginButton>Login</LoginButton>
+                        <LoginButton>Login</LoginButton>
+                    </Form>
                     <Signup href="/signup">Sign up here</Signup>
                 </LoginDetails>
             </LoginContainer>
@@ -33,7 +34,7 @@ const LoginPageContainer = styled.div`
     display: flex;
     flex-direction: row;
     width: 100vw;
-    height: 100vh;
+    height: 50vw;
 `;
 
 const BannerContainer = styled.div`
@@ -87,6 +88,16 @@ const LoginDetails = styled.div`
     font-size: 15px;
 `;
 
+const Form = styled.form`
+    text-align: left;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(30, 30, 30);
+    font-size: 15px;
+`
+
 const InputLabel = styled.h2`
     font-size: 18px;
     margin-bottom: 5px;
@@ -100,13 +111,9 @@ const Input = styled.input`
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 450px;
-  
+    color: black;
     margin-bottom: 20px;
     background-color: whitesmoke;
-
-    ::placeholder {
-        color: #aaa;
-    }
 `;
 
 const ForgotPassword = styled.a`

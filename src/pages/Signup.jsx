@@ -11,20 +11,21 @@ const Login = () => {
             <SignupContainer>
                 <SignupDetails>
                     <h1>Create account</h1>
+                    <Form>
+                        <InputLabel>Username</InputLabel>
+                        <Input placeholder="Enter your username..." />
 
-                    <InputLabel>Username</InputLabel>
-                    <Input placeholder="Enter your username..." />
+                        <InputLabel>E-mail</InputLabel>
+                        <Input placeholder="Enter your e-mail..." />
 
-                    <InputLabel>E-mail</InputLabel>
-                    <Input placeholder="Enter your e-mail..." />
+                        <InputLabel>Password</InputLabel>
+                        <Input style={{margin: 0}} type="password" placeholder="Enter your password..." />
 
-                    <InputLabel>Password</InputLabel>
-                    <Input style={{margin: 0}} type="password" placeholder="Enter your password..." />
+                        <InputLabel>Confirm Password</InputLabel>
+                        <Input style={{margin: 0}} type="password" placeholder="Re-enter your password..." />
 
-                    <InputLabel>Confirm Password</InputLabel>
-                    <Input style={{margin: 0}} type="password" placeholder="Re-enter your password..." />
-
-                    <SignupButton>Sign up</SignupButton>
+                        <SignupButton>Sign up</SignupButton>
+                    </Form>
                 </SignupDetails>
             </SignupContainer>
         </SignupPageContainer>
@@ -37,7 +38,7 @@ const SignupPageContainer = styled.div`
     display: flex;
     flex-direction: row;
     width: 100vw;
-    height: 100vh;
+    height: auto;
 `;
 
 const BannerContainer = styled.div`
@@ -91,6 +92,16 @@ const SignupDetails = styled.div`
     font-size: 15px;
 `;
 
+const Form = styled.form`
+    text-align: left;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(30, 30, 30);
+    font-size: 15px;
+`
+
 const InputLabel = styled.h2`
     font-size: 18px;
     margin-bottom: 5px;
@@ -104,13 +115,9 @@ const Input = styled.input`
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 450px;
-  
+    color: black;
     margin-bottom: 20px;
     background-color: whitesmoke;
-
-    ::placeholder {
-        color: #aaa;
-    }
 `;
 
 const SignupButton = styled.button`
