@@ -13,8 +13,8 @@ const ProfilePage = () => {
         <ProfileContainer>
         <ProfileCard>
             <ProfileCardColumn>
-                <Avatar src="/blank-profile-picture.png" alt="Profile Picture" />
-                <Button>Edit Profile</Button>
+            <Avatar src={userInfo.imageUrl || "/blank-profile-picture.png"} alt="Profile Picture" />
+            <Button onClick={() => navigate("/editProfile")}>Edit Profile</Button>
             </ProfileCardColumn>
 
             <ProfileCardColumn>
