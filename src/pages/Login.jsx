@@ -20,16 +20,17 @@ const Login = () => {
             <LoginContainer>
                 <LoginDetails>
                     <h1>Sign in to TasteCraft</h1>
-                    <Form>
-                        <InputLabel>Username/E-mail</InputLabel>
-                        <Input placeholder="Enter your username/e-mail..." />
 
-                        <InputLabel>Password</InputLabel>
-                        <Input style={{margin: 0}} type="password" placeholder="Enter your password..." />
-                        <ForgotPassword>Forgot password?</ForgotPassword>
+                    <InputLabel>E-mail</InputLabel>
+                    <Input placeholder="Enter your e-mail..." onChange={(e) => setInputs({ ...inputs, email: e.target.value})}/>
 
-                        <LoginButton>Login</LoginButton>
-                    </Form>
+                    <InputLabel>Password</InputLabel>
+                    <Input style={{margin: 0}} type="password" placeholder="Enter your password..." onChange={(e) => setInputs({ ...inputs, password: e.target.value})}/>
+
+                    <LoginButton onClick={async () => {
+                        await login({ email: inputs.email, password: inputs.password });
+                        navigate("/")
+                    }}>Login</LoginButton>
                     <Signup href="/signup">Sign up here</Signup>
                 </LoginDetails>
             </LoginContainer>
@@ -43,7 +44,7 @@ const LoginPageContainer = styled.div`
     display: flex;
     flex-direction: row;
     width: 100vw;
-    height: 50vw;
+    height: 100vh;
 `;
 
 const BannerContainer = styled.div`
@@ -97,16 +98,6 @@ const LoginDetails = styled.div`
     font-size: 15px;
 `;
 
-const Form = styled.form`
-    text-align: left;
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: rgb(30, 30, 30);
-    font-size: 15px;
-`
-
 const InputLabel = styled.h2`
     font-size: 18px;
     margin-bottom: 5px;
@@ -121,8 +112,13 @@ const Input = styled.input`
     border-radius: 5px;
     width: 450px;
     color: black;
+  
     margin-bottom: 20px;
     background-color: whitesmoke;
+
+    ::placeholder {
+        color: #aaa;
+    }
 `;
 
 const ForgotPassword = styled.a`
