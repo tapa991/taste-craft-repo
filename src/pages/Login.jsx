@@ -24,14 +24,12 @@ const Login = () => {
                         <InputLabel>Username/E-mail</InputLabel>
                         <Input placeholder="Enter your username/e-mail..." />
 
-<<<<<<< HEAD
                         <InputLabel>Password</InputLabel>
                         <Input style={{margin: 0}} type="password" placeholder="Enter your password..." />
                         <ForgotPassword>Forgot password?</ForgotPassword>
 
                         <LoginButton>Login</LoginButton>
                     </Form>
-=======
                     <InputLabel>E-mail</InputLabel>
                     <Input placeholder="Enter your e-mail..." onChange={(e) => setInputs({ ...inputs, email: e.target.value})}/>
 
@@ -42,7 +40,6 @@ const Login = () => {
                         await login({ email: inputs.email, password: inputs.password });
                         navigate("/")
                     }}>Login</LoginButton>
->>>>>>> b6443ceadebae5edcb6d5366749e88b6c56add7b
                     <Signup href="/signup">Sign up here</Signup>
                 </LoginDetails>
             </LoginContainer>
