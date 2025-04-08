@@ -23,11 +23,12 @@ const Signup = () => {
             <SignupContainer>
                 <SignupDetails>
                     <h1>Create account</h1>
+
                     <InputLabel>Username</InputLabel>
                     <Input placeholder="Enter your username..." onChange={(e) => setInputs({ ...inputs, username: e.target.value})}/>
 
                     <InputLabel>E-mail</InputLabel>
-                    <Input placeholder="Enter your e-mail..." type="email" onChange={(e) => setInputs({ ...inputs, email: e.target.value})}/>
+                    <Input placeholder="Enter your e-mail..." onChange={(e) => setInputs({ ...inputs, email: e.target.value})}/>
 
                     <InputLabel>Password</InputLabel>
                     <Input style={{margin: 0}} type="password" placeholder="Enter your password..." onChange={(e) => setInputs({ ...inputs, password: e.target.value})}/>
@@ -52,7 +53,7 @@ const SignupPageContainer = styled.div`
     display: flex;
     flex-direction: row;
     width: 100vw;
-    height: auto;
+    height: 100vh;
 `;
 
 const BannerContainer = styled.div`
@@ -106,16 +107,6 @@ const SignupDetails = styled.div`
     font-size: 15px;
 `;
 
-const Form = styled.form`
-    text-align: left;
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: rgb(30, 30, 30);
-    font-size: 15px;
-`
-
 const InputLabel = styled.h2`
     font-size: 18px;
     margin-bottom: 5px;
@@ -133,6 +124,10 @@ const Input = styled.input`
   
     margin-bottom: 20px;
     background-color: whitesmoke;
+
+    ::placeholder {
+        color: #aaa;
+    }
 `;
 
 const SignupButton = styled.button`
