@@ -23,28 +23,11 @@ const Signup = () => {
             <SignupContainer>
                 <SignupDetails>
                     <h1>Create account</h1>
-                    <Form>
-                        <InputLabel>Username</InputLabel>
-                        <Input placeholder="Enter your username..." />
-
-<<<<<<< HEAD
-                        <InputLabel>E-mail</InputLabel>
-                        <Input placeholder="Enter your e-mail..." />
-
-                        <InputLabel>Password</InputLabel>
-                        <Input style={{margin: 0}} type="password" placeholder="Enter your password..." />
-
-                        <InputLabel>Confirm Password</InputLabel>
-                        <Input style={{margin: 0}} type="password" placeholder="Re-enter your password..." />
-
-                        <SignupButton>Sign up</SignupButton>
-                    </Form>
-=======
                     <InputLabel>Username</InputLabel>
                     <Input placeholder="Enter your username..." onChange={(e) => setInputs({ ...inputs, username: e.target.value})}/>
 
                     <InputLabel>E-mail</InputLabel>
-                    <Input placeholder="Enter your e-mail..." onChange={(e) => setInputs({ ...inputs, email: e.target.value})}/>
+                    <Input placeholder="Enter your e-mail..." type="email" onChange={(e) => setInputs({ ...inputs, email: e.target.value})}/>
 
                     <InputLabel>Password</InputLabel>
                     <Input style={{margin: 0}} type="password" placeholder="Enter your password..." onChange={(e) => setInputs({ ...inputs, password: e.target.value})}/>
@@ -57,7 +40,6 @@ const Signup = () => {
                         await login({ email: inputs.email, password: inputs.password });
                         navigate("/")
                     }}>Sign up</SignupButton>
->>>>>>> b6443ceadebae5edcb6d5366749e88b6c56add7b
                 </SignupDetails>
             </SignupContainer>
         </SignupPageContainer>
@@ -148,10 +130,7 @@ const Input = styled.input`
     border-radius: 5px;
     width: 450px;
     color: black;
-<<<<<<< HEAD
-=======
   
->>>>>>> b6443ceadebae5edcb6d5366749e88b6c56add7b
     margin-bottom: 20px;
     background-color: whitesmoke;
 `;

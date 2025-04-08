@@ -30,16 +30,6 @@ const Login = () => {
 
                         <LoginButton>Login</LoginButton>
                     </Form>
-                    <InputLabel>E-mail</InputLabel>
-                    <Input placeholder="Enter your e-mail..." onChange={(e) => setInputs({ ...inputs, email: e.target.value})}/>
-
-                    <InputLabel>Password</InputLabel>
-                    <Input style={{margin: 0}} type="password" placeholder="Enter your password..." onChange={(e) => setInputs({ ...inputs, password: e.target.value})}/>
-
-                    <LoginButton onClick={async () => {
-                        await login({ email: inputs.email, password: inputs.password });
-                        navigate("/")
-                    }}>Login</LoginButton>
                     <Signup href="/signup">Sign up here</Signup>
                 </LoginDetails>
             </LoginContainer>
@@ -131,10 +121,6 @@ const Input = styled.input`
     border-radius: 5px;
     width: 450px;
     color: black;
-<<<<<<< HEAD
-=======
-  
->>>>>>> b6443ceadebae5edcb6d5366749e88b6c56add7b
     margin-bottom: 20px;
     background-color: whitesmoke;
 `;
